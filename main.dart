@@ -26,7 +26,7 @@ void main() async {
     ),
   );
 
-  // ── Inisialisasi Supabase / Initialize Supabase ───────────────
+  // Inisialisasi Supabase / Initialize Supabase
   await Supabase.initialize(
     url: AppConfig.supabaseUrl,
     anonKey: AppConfig.supabaseAnonKey,
