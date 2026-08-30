@@ -58,7 +58,7 @@ class _DetailScreenState extends State<DetailScreen>
     super.dispose();
   }
 
-  // ─── PERBARUI / UPDATE ───────────────────────────────────────
+  // PERBARUI / UPDATE
   Future<void> _handleUpdate() async {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
@@ -94,7 +94,7 @@ class _DetailScreenState extends State<DetailScreen>
     }
   }
 
-  // ─── Dialog Sukses / Success Dialog ──────────────────────────
+  // Dialog Sukses / Success Dialog
   void _showSuccessDialog() {
     _pulseController.forward(from: 0);
 
@@ -108,7 +108,7 @@ class _DetailScreenState extends State<DetailScreen>
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // ── Ikon Sukses Beranimasi / Animated Success Icon ──
+              // Ikon Sukses Beranimasi / Animated Success Icon
               ScaleTransition(
                 scale: _pulseAnimation,
                 child: Container(
@@ -153,7 +153,7 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 
-  // ─── UI / UI ─────────────────────────────────────────────────
+  // UI / UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -162,7 +162,7 @@ class _DetailScreenState extends State<DetailScreen>
         key: _formKey,
         child: CustomScrollView(
           slivers: [
-            // ── Sliver App Bar dengan Gambar Hero / Sliver App Bar with Hero Image ──
+            // Sliver App Bar dengan Gambar Hero / Sliver App Bar with Hero Image
             SliverAppBar(
               expandedHeight: 280,
               pinned: true,
@@ -239,7 +239,7 @@ class _DetailScreenState extends State<DetailScreen>
               ),
             ),
 
-            // ── Konten / Content ──────────────────────────────
+            // Konten / Content
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.all(20),
@@ -260,7 +260,7 @@ class _DetailScreenState extends State<DetailScreen>
                     ),
                     const SizedBox(height: 16),
 
-                    // ── Mode Edit / Edit Mode ────────────────────
+                    // Mode Edit / Edit Mode
                     if (_isEditing) ...[
                       _buildEditForm(),
                     ] else ...[
@@ -274,7 +274,7 @@ class _DetailScreenState extends State<DetailScreen>
         ),
       ),
 
-      // ── Tombol Konfirmasi Bawah / Bottom Confirm Button ───────
+      // Tombol Konfirmasi Bawah / Bottom Confirm Button
       bottomNavigationBar: _isEditing
           ? Container(
               padding: const EdgeInsets.all(20),
@@ -292,7 +292,7 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 
-  // ─── Tampilan Baca / Read View ────────────────────────────────
+  // Tampilan Baca / Read View
   Widget _buildReadView() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -402,7 +402,7 @@ class _DetailScreenState extends State<DetailScreen>
     );
   }
 
-  // ─── Formulir Edit / Edit Form ────────────────────────────────
+  // Formulir Edit / Edit Form
   Widget _buildEditForm() {
     return StatefulBuilder(
       builder: (ctx, setFormState) {
