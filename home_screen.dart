@@ -66,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  // ─── Dialog Tambah Item / Add Item Dialog ─────────────────────
+  // ─── Dialog Tambah Item / Add Item Dialog
   void _showAddItemDialog() {
     final titleController = TextEditingController();
     final descController = TextEditingController();
@@ -231,7 +231,7 @@ class _HomeScreenState extends State<HomeScreen>
     );
   }
 
-  // ─── UI / UI ─────────────────────────────────────────────────
+  // UI / UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
