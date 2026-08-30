@@ -35,7 +35,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-  // ─── Validasi / Validation ────────────────────────────────────
+  // Validasi / Validation
   String? _validateFullName(String? v) {
     if (v == null || v.trim().isEmpty) return 'Nama lengkap wajib diisi';
     if (v.trim().length < 5) return 'Nama minimal 5 karakter';
@@ -74,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return null;
   }
 
-  // ─── Daftar / Register ───────────────────────────────────────
+  // Daftar / Register
   Future<void> _handleSignUp() async {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
@@ -124,7 +124,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  // ─── UI / UI ─────────────────────────────────────────────────
+  // UI / UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // ── Header / Header ──────────────────────────
+                // Header / Header
                 const Text(
                   'Buat Akun',
                   style: TextStyle(
@@ -161,7 +161,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 const SizedBox(height: 28),
 
-                // ── Formulir / Form ───────────────────────────
+                // Formulir / Form
                 Container(
                   padding: const EdgeInsets.all(24),
                   decoration: BoxDecoration(
@@ -257,7 +257,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                 const SizedBox(height: 24),
 
-                // ── Tautan Login / Login Link ─────────────────
+                // Tautan Login / Login Link
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
