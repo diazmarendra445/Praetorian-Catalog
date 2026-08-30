@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AppConfig {
-  // ============================================================
-  // ⚠️  GANTI DENGAN SUPABASE URL & ANON KEY KAMU /
-  //     REPLACE WITH YOUR SUPABASE URL & ANON KEY
-  // ============================================================
+  
+  //  GANTI DENGAN SUPABASE URL & ANON KEY /
+  //  REPLACE WITH SUPABASE URL & ANON KEY
+  
   static const String supabaseUrl = 'https://YOUR_PROJECT_ID.supabase.co';
   static const String supabaseAnonKey = 'YOUR_ANON_KEY_HERE';
 
