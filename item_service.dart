@@ -4,7 +4,7 @@ import '../models/item_model.dart';
 class ItemService {
   final SupabaseClient _client = Supabase.instance.client;
 
-  // ─── TAMBAH / CREATE ─────────────────────────────────────────
+  // TAMBAH / CREATE
   Future<ItemModel> createItem({
     required String userId,
     required String title,
@@ -27,7 +27,7 @@ class ItemService {
     return ItemModel.fromMap(data);
   }
 
-  // ─── AMBIL SEMUA (per user) / READ ALL (by user) ─────────────
+  // AMBIL SEMUA (per user) / READ ALL (by user)
   Future<List<ItemModel>> getItems(String userId) async {
     final data = await _client
         .from('items')
@@ -40,7 +40,7 @@ class ItemService {
         .toList();
   }
 
-  // ─── AMBIL SATU / READ ONE ───────────────────────────────────
+  // AMBIL SATU / READ ONE
   Future<ItemModel> getItemById(String itemId) async {
     final data = await _client
         .from('items')
@@ -51,7 +51,7 @@ class ItemService {
     return ItemModel.fromMap(data);
   }
 
-  // ─── PERBARUI / UPDATE ───────────────────────────────────────
+  // PERBARUI / UPDATE
   Future<ItemModel> updateItem({
     required String itemId,
     required String title,
@@ -75,12 +75,12 @@ class ItemService {
     return ItemModel.fromMap(data);
   }
 
-  // ─── HAPUS / DELETE ──────────────────────────────────────────
+  // HAPUS / DELETE
   Future<void> deleteItem(String itemId) async {
     await _client.from('items').delete().eq('id', itemId);
   }
 
-  // ─── CARI / SEARCH ───────────────────────────────────────────
+  // CARI / SEARCH
   Future<List<ItemModel>> searchItems(String userId, String query) async {
     final data = await _client
         .from('items')
