@@ -11,14 +11,14 @@ class AuthProvider extends ChangeNotifier {
   AuthStatus _status = AuthStatus.idle;
   String _errorMessage = '';
 
-  // ─── Getters / Getters ───────────────────────────────────────
+  // Getters / Getters
   UserModel? get user => _user;
   AuthStatus get status => _status;
   String get errorMessage => _errorMessage;
   bool get isLoading => _status == AuthStatus.loading;
   bool get isLoggedIn => _user != null;
 
-  // ─── DAFTAR / SIGN UP ────────────────────────────────────────
+  // DAFTAR / SIGN UP
   Future<bool> signUp({
     required String fullName,
     required String username,
@@ -43,7 +43,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // ─── MASUK / SIGN IN ─────────────────────────────────────────
+  // MASUK / SIGN IN
   Future<bool> signIn({
     required String username,
     required String password,
@@ -62,7 +62,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // ─── MUAT PROFIL / LOAD PROFILE ──────────────────────────────
+  // MUAT PROFIL / LOAD PROFILE
   Future<void> loadProfile(String uid) async {
     try {
       _user = await _authService.getProfile(uid);
@@ -72,7 +72,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // ─── PERBARUI PROFIL / UPDATE PROFILE ────────────────────────
+  // PERBARUI PROFIL / UPDATE PROFILE
   Future<bool> updateProfile({
     required String fullName,
     required String phone,
@@ -93,7 +93,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  // ─── KELUAR / SIGN OUT ───────────────────────────────────────
+  // KELUAR / SIGN OUT
   Future<void> signOut() async {
     await _authService.signOut();
     _user = null;
@@ -102,7 +102,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ─── Helpers / Helpers ───────────────────────────────────────
+  // Helpers / Helpers
   void _setLoading() {
     _status = AuthStatus.loading;
     _errorMessage = '';
