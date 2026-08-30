@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen>
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // ─── Kontroler Animasi / Animation Controllers ────────────────
+  // Kontroler Animasi / Animation Controllers
   late AnimationController _animController;
   late Animation<double> _logoFade;       // ANIMASI 1: Fade logo / ANIMATION 1: Logo fade
   late Animation<Offset> _formSlide;      // ANIMASI 2: Slide form dari bawah / ANIMATION 2: Form slide from bottom
@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen>
     super.dispose();
   }
 
-  // ─── Login / Login ───────────────────────────────────────────
+  // Login / Login
   Future<void> _handleLogin() async {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
@@ -114,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen>
     );
   }
 
-  // ─── UI / UI ─────────────────────────────────────────────────
+  // UI / UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen>
               children: [
                 const SizedBox(height: 32),
 
-                // ── Logo dengan ANIMASI FADE / Logo with FADE ANIMATION ───
+                // Logo dengan ANIMASI FADE / Logo with FADE ANIMATION
                 FadeTransition(
                   opacity: _logoFade,
                   child: Column(
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen>
 
                 const SizedBox(height: 40),
 
-                // ── Form dengan ANIMASI SLIDE / Form with SLIDE ANIMATION ─
+                // Form dengan ANIMASI SLIDE / Form with SLIDE ANIMATION
                 SlideTransition(
                   position: _formSlide,
                   child: FadeTransition(
@@ -269,7 +269,7 @@ class _LoginScreenState extends State<LoginScreen>
 
                 const SizedBox(height: 24),
 
-                // ── Tautan Daftar / Sign Up Link ──────────────────────────
+                // Tautan Daftar / Sign Up Link
                 FadeTransition(
                   opacity: _animController,
                   child: Row(
