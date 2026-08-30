@@ -41,7 +41,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     super.dispose();
   }
 
-  // ─── Perbarui Profil / Update Profile ────────────────────────
+  // Perbarui Profil / Update Profile
   Future<void> _handleUpdate() async {
     if (!_formKey.currentState!.validate()) return;
     FocusScope.of(context).unfocus();
@@ -72,7 +72,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  // ─── Keluar / Logout ─────────────────────────────────────────
+  // Keluar / Logout
   void _showLogoutDialog() {
     showDialog(
       context: context,
@@ -121,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     }
   }
 
-  // ─── UI / UI ─────────────────────────────────────────────────
+  // UI / UI
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -153,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   const SizedBox(height: 16),
 
-                  // ── Avatar / Avatar ─────────────────────────
+                  // Avatar / Avatar
                   _buildAvatar(user?.fullName ?? 'User'),
                   const SizedBox(height: 12),
 
@@ -172,7 +172,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                   const SizedBox(height: 28),
 
-                  // ── Formulir Edit / Edit Form ───────────────
+                  // Formulir Edit / Edit Form
                   Container(
                     padding: const EdgeInsets.all(20),
                     decoration: BoxDecoration(
@@ -277,7 +277,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                   const SizedBox(height: 16),
 
-                  // ── Tombol Keluar / Logout Button ──────────
+                  // Tombol Keluar / Logout Button
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
