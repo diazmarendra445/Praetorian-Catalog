@@ -4,7 +4,7 @@ import '../models/user_model.dart';
 class AuthService {
   final SupabaseClient _client = Supabase.instance.client;
 
-  // ─── DAFTAR / SIGN UP ────────────────────────────────────────
+  // DAFTAR / SIGN UP
   Future<UserModel> signUp({
     required String fullName,
     required String username,
@@ -45,7 +45,7 @@ class AuthService {
     );
   }
 
-  // ─── MASUK / SIGN IN ─────────────────────────────────────────
+  // MASUK / SIGN IN
   Future<UserModel> signIn({
     required String username,
     required String password,
@@ -76,7 +76,7 @@ class AuthService {
     return await getProfile(authResponse.user!.id);
   }
 
-  // ─── AMBIL PROFIL / GET PROFILE ──────────────────────────────
+  // AMBIL PROFIL / GET PROFILE
   Future<UserModel> getProfile(String uid) async {
     final data = await _client
         .from('profiles')
@@ -87,7 +87,7 @@ class AuthService {
     return UserModel.fromMap(data);
   }
 
-  // ─── PERBARUI PROFIL / UPDATE PROFILE ────────────────────────
+  // PERBARUI PROFIL / UPDATE PROFILE
   Future<UserModel> updateProfile({
     required String uid,
     required String fullName,
@@ -101,12 +101,12 @@ class AuthService {
     return await getProfile(uid);
   }
 
-  // ─── KELUAR / SIGN OUT ───────────────────────────────────────
+  // KELUAR / SIGN OUT
   Future<void> signOut() async {
     await _client.auth.signOut();
   }
 
-  // ─── USER SAAT INI / CURRENT USER ────────────────────────────
+  // USER SAAT INI / CURRENT USER
   User? get currentUser => _client.auth.currentUser;
   bool get isLoggedIn => currentUser != null;
 }
