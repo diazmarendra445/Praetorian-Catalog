@@ -7,7 +7,7 @@ enum ItemStatus { idle, loading, success, error }
 class ItemProvider extends ChangeNotifier {
   final ItemService _itemService = ItemService();
 
-  // ─── State / State ───────────────────────────────────────────
+  // State / State
   List<ItemModel> _items = [];
   List<ItemModel> _filteredItems = [];
   ItemStatus _status = ItemStatus.idle;
@@ -15,7 +15,7 @@ class ItemProvider extends ChangeNotifier {
   String _searchQuery = '';
   String _selectedCategory = 'All';
 
-  // ─── Getters / Getters ───────────────────────────────────────
+  // Getters / Getters
   List<ItemModel> get items => _filteredItems.isEmpty && _searchQuery.isEmpty
       ? _items
       : _filteredItems;
@@ -26,7 +26,7 @@ class ItemProvider extends ChangeNotifier {
   String get selectedCategory => _selectedCategory;
   int get itemCount => _items.length;
 
-  // ─── AMBIL SEMUA / FETCH ALL ─────────────────────────────────
+  // AMBIL SEMUA / FETCH ALL
   Future<void> fetchItems(String userId) async {
     _setLoading();
     try {
@@ -38,7 +38,7 @@ class ItemProvider extends ChangeNotifier {
     }
   }
 
-  // ─── TAMBAH / CREATE ─────────────────────────────────────────
+  // TAMBAH / CREATE
   Future<bool> createItem({
     required String userId,
     required String title,
@@ -66,7 +66,7 @@ class ItemProvider extends ChangeNotifier {
     }
   }
 
-  // ─── PERBARUI / UPDATE ───────────────────────────────────────
+  // PERBARUI / UPDATE
   Future<bool> updateItem({
     required String itemId,
     required String title,
@@ -97,7 +97,7 @@ class ItemProvider extends ChangeNotifier {
     }
   }
 
-  // ─── HAPUS / DELETE ──────────────────────────────────────────
+  // HAPUS / DELETE
   Future<bool> deleteItem(String itemId) async {
     try {
       await _itemService.deleteItem(itemId);
@@ -112,14 +112,14 @@ class ItemProvider extends ChangeNotifier {
     }
   }
 
-  // ─── CARI / SEARCH ───────────────────────────────────────────
+  // CARI / SEARCH
   void search(String query) {
     _searchQuery = query;
     _applyFilter();
     notifyListeners();
   }
 
-  // ─── FILTER KATEGORI / FILTER CATEGORY ───────────────────────
+  // FILTER KATEGORI / FILTER CATEGORY
   void filterByCategory(String category) {
     _selectedCategory = category;
     _applyFilter();
@@ -146,7 +146,7 @@ class ItemProvider extends ChangeNotifier {
     _filteredItems = result;
   }
 
-  // ─── BERSIHKAN / CLEAR ───────────────────────────────────────
+  // BERSIHKAN / CLEAR
   void clearItems() {
     _items = [];
     _filteredItems = [];
@@ -156,7 +156,7 @@ class ItemProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ─── Helpers / Helpers ───────────────────────────────────────
+  // Helpers / Helpers
   void _setLoading() {
     _status = ItemStatus.loading;
     notifyListeners();
