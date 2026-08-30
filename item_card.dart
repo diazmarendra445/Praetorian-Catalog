@@ -50,7 +50,7 @@ class _ItemCardState extends State<ItemCard> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ── Gambar / Image ────────────────────────────────
+              // Gambar / Image
               Expanded(
                 flex: 3,
                 child: Stack(
@@ -94,7 +94,7 @@ class _ItemCardState extends State<ItemCard> {
                 ),
               ),
 
-              // ── Info / Info ──────────────────────────────────────
+              // Info / Info
               Expanded(
                 flex: 2,
                 child: Padding(
